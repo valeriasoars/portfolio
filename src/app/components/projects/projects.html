@@ -1,0 +1,18 @@
+<app-title subtitle="Portifólio" title="Projetos selecionados" />
+<section class="w-full py-20 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      @for (project of projects; track project.title) {
+        <app-card-project
+          [image]="project.image"
+          [title]="project.title"
+          [shortDescription]="project.shortDescription"
+          [fullDescription]="project.fullDescription"
+          [technologies]="project.technologies"
+          [githubUrl]="project.githubUrl"
+          [demoUrl]="project.demoUrl"
+        />
+      }
+    </div>
+  </div>
+</section>

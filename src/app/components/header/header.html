@@ -1,0 +1,43 @@
+<header  class="w-full text-black fixed top-0 left-0 z-50 border-b border-gray-200 bg-white/80  backdrop-blur-lg">
+  <div class=" max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <h1 class="seconday-font text-xl font-semibold tracking-wide cursor-pointer">
+      Portfolio
+    </h1>
+
+    <!-- Menu Desktop -->
+    <nav class="hidden md:flex space-x-6 text-sm font-medium">
+      <a [routerLink]="[]" fragment="sobre" class="hover-secondary transition duration-300">
+        Sobre
+      </a>
+      <a [routerLink]="[]" fragment="projetos" class="hover-secondary transition duration-300">
+        Projetos
+      </a>
+      <a  [routerLink]="[]" fragment="skills"class="hover-secondary transition duration-300">
+        Skills
+      </a>
+      <a [routerLink]="[]" fragment="contato" class="hover-secondary transition duration-300">
+        Contato
+      </a>
+    </nav>
+
+    <!-- Botão Mobile -->
+    <button 
+      class="md:hidden text-xl"
+      (click)="openMenu()">
+      ☰
+    </button>
+
+  </div>
+
+  <!-- Menu Mobile -->
+  @if (isOpen == true) {
+    <div class="md:hidden px-6 pb-4 space-y-4 text-sm font-medium bg-white">
+      <a href="#sobre" class="block hover:text-purple-500">Sobre</a>
+      <a href="#projetos" class="block hover:text-purple-500">Projetos</a>
+      <a href="#skills" class="block hover:text-purple-500">Skills</a>
+      <a href="#contato" class="block hover:text-purple-500">Contato</a>
+    </div>
+  }
+
+</header>

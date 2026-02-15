@@ -1,0 +1,46 @@
+<app-header />
+
+<main class="flex flex-col items-center justify-center text-center pt-20">
+  <section
+    class="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-4 max-w-4xl"
+  >
+    <div class="space-y-6">
+      <p class="text-lg text-gray-500 tracking-widest">OLÁ, EU SOU</p>
+      <h1 class="seconday-font text-6xl md:text-7xl font-bold">Valéria Soares</h1>
+
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+        Desenvolvedora de software, explorando tecnologia para criar projetos que unem
+        funcionalidade e praticidade.
+      </p>
+    </div>
+
+    <button
+      class="mt-8 px-8 py-3 bg-black text-white rounded-full bg-hover-secondary transition duration-300 shadow-lg"
+      [routerLink]="[]" fragment="sobre" 
+    >
+      Ver Projetos
+    </button>
+
+    <app-social-media />
+  </section>
+
+  <section id="sobre" class="pt-32 -mt-34">
+    <div class="max-w-5xl w-full">
+      <app-about-me />
+    </div>
+  </section>
+
+  <section id="projetos" class="pt-32 mt-20">
+    <app-projects />
+  </section>
+
+  <section id="skills" class=" pt-32 mt-10">
+    <app-skills />
+  </section>
+
+  <section id="contato" class="mt-30">
+    <app-contact />
+  </section>
+</main>
+
+<app-footer />

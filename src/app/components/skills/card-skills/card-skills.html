@@ -1,0 +1,16 @@
+<div class="w-full bg-transparent rounded-2xl p-6 space-y-4">
+
+  <!-- TÍTULO -->
+  <h3 class="text-2xl font-bold text-left">
+    {{ title }}
+  </h3>
+
+  <!-- TAGS -->
+  <div class="flex flex-wrap gap-3">
+
+    @for (skill of skills; track $index) {
+      <app-tag [tag]="skill"/>
+    }
+  </div>
+
+</div>

@@ -1,0 +1,104 @@
+<!-- CARD -->
+<div
+  (click)="openModal()"
+  class="cursor-pointer bg-white rounded-2xl shadow-lg overflow-hidden 
+         hover:-translate-y-2 hover:shadow-2xl 
+         transition-all duration-300 
+         flex flex-col h-full"
+>
+  <!-- IMAGEM -->
+  <img 
+    [src]="image" 
+    [alt]="title" 
+    class="w-full h-48 md:h-52 object-cover"
+  />
+
+  <!-- CONTEÚDO -->
+  <div class="flex flex-col flex-1 px-6 py-6 space-y-4 text-left">
+
+    <!-- TÍTULO -->
+    <h3 class="seconday-font text-lg md:text-xl font-bold text-gray-900">
+      {{ title }}
+    </h3>
+
+    <!-- DESCRIÇÃO -->
+    <p class="text-gray-600 text-sm md:text-base leading-relaxed flex-1">
+      {{ shortDescription }}
+    </p>
+
+    <!-- TAGS -->
+    <div class="flex flex-wrap gap-2 pt-2">
+      @for (tech of technologies; track $index) {
+        <app-tag [tag]="tech" />
+      }
+    </div>
+
+  </div>
+</div>
+
+
+<!-- MODAL -->
+@if (isOpen) {
+  <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" (click)="closeModal()" >
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 md:p-8 relative text-left shadow-2xl max-h-[90vh] overflow-y-auto">
+      
+      <!-- Botão Fechar -->
+      <button 
+        (click)="closeModal()" 
+        class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
+        aria-label="Fechar modal">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+
+      <!-- Título -->
+      <h2 class="seconday-font text-2xl md:text-3xl font-bold mb-6 pr-8 text-gray-900">
+        {{ title }}
+      </h2>
+
+      <!-- Descrição -->
+      <div class="mb-6">
+        <p class="text-gray-600 leading-relaxed text-base">
+          {{ fullDescription }}
+        </p>
+      </div>
+
+      <!-- Tecnologias -->
+      <div class="mb-8">
+        <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">
+          Tecnologias
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          @for (tech of technologies; track $index) {
+            <app-tag [tag]="tech" />
+          }
+        </div>
+      </div>
+
+      <!-- Links -->
+  <div class="flex gap-6 pt-6 border-t border-gray-200 justify-start">
+        @if (githubUrl) {
+          <a 
+            [href]="githubUrl" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-gray-700 hover:text-secondary transition-colors">
+            <i class="fa-brands fa-github text-lg"></i>
+            <span>GitHub</span>
+          </a>
+        }
+
+        @if (demoUrl) {
+          <a 
+            [href]="demoUrl" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-gray-700 hover:text-secondary transition-colors">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>Demo</span>
+          </a>
+        }
+      </div>
+
+    </div>
+  </div>
+}
