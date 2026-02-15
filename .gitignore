@@ -44,7 +44,6 @@ __screenshots__/
 Thumbs.db
 
 # Environment variables
-.env
-.env.local
-.env.development
-.env.production
+# Ambientes com dados sensíveis
+src/environments/environment.ts
+src/environments/environment.development.ts
